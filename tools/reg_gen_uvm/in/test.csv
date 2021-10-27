@@ -1,0 +1,4 @@
+Base,Offset,RegisterName,Type,Size,LSB,FieldName,Reset,Description
+0x1000,0x0000,device_info,RO,6,0,major_ver,0x6,Version of the register map.
+0x1000,0x0000,device_info,RW,24,6,fpga_num,0x2,FPGA number in the design.
+0x1000,0x0004,sw_info,RW,2,0,version,0x0,version of the software running.

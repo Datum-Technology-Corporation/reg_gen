@@ -1,0 +1,82 @@
+{{ copyright_header }}
+
+
+// WARNING: THE FOLLOWING IS AUTO-GENERATED CODE.
+// ANY CHANGES MADE HERE WILL BE ERASED UPON THE NEXT RELEASE OF THIS RAL.
+
+
+`ifndef __UVME_{{ name_uppercase }}_REG_BLOCK_SV__
+`define __UVME_{{ name_uppercase }}_REG_BLOCK_SV__
+
+
+{{ includes }}
+
+class uvme_{{ name }}_reg_block_c extends uvml_ral_reg_block_c;
+   
+   // Objects
+   uvme_{{ name }}_cfg_c    cfg;
+   uvme_{{ name }}_cntxt_c  cntxt;
+   
+   // Registers
+{{ reg_declarations }}   
+   
+   `uvm_object_utils_begin(uvme_{{ name }}_reg_block_c)
+{{ field_macros }}   `uvm_object_utils_end
+   
+   
+   /**
+    * Default constructor.
+    */
+   extern function new(string name="uvme_{{ name }}_reg_block");
+   
+   /**
+    * Creates register(s).
+    */
+   extern virtual function void create_regs();
+   
+   /**
+    * Creates default register map.
+    */
+   extern virtual function void create_reg_map();
+   
+   /**
+    * Adds register(s) to register map.
+    */
+   extern virtual function void add_regs_to_map();
+   
+endclass : uvme_{{ name }}_reg_block_c
+
+
+function uvme_{{ name }}_reg_block_c::new(string name="uvme_{{ name }}_reg_block");
+   
+   super.new(name, UVM_NO_COVERAGE);
+   
+endfunction : new
+
+
+function void uvme_{{ name }}_reg_block_c::create_regs();
+   
+{{ reg_creations }}endfunction : create_regs
+
+
+function void uvme_{{ name }}_reg_block_c::create_reg_map();
+   
+   // Create default register map (default_map)
+   default_map = create_map(
+      .name     ("default_map"),
+      .base_addr(32'h{{ base_address }}),
+      .n_bytes  ({{ register_bit_width }}),
+      .endian   ({{ endianness }})
+   );
+   
+endfunction : create_reg_map
+
+
+function void uvme_{{ name }}_reg_block_c::add_regs_to_map();
+   
+{{ reg_add_to_map }}   
+endfunction : add_regs_to_map
+
+
+`endif // _UVME_{{ name_uppercase }}_REG_BLOCK_SV__
+

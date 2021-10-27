@@ -1,0 +1,47 @@
+{{ copyright_header }}
+
+
+// WARNING: THE FOLLOWING IS AUTO-GENERATED CODE.
+// ANY CHANGES MADE HERE WILL BE ERASED UPON THE NEXT RELEASE OF THIS RAL.
+
+
+`ifndef __UVME_{{ project_name_uppercase }}_{{ name_uppercase }}_REG_SV__
+`define __UVME_{{ project_name_uppercase }}_{{ name_uppercase }}_REG_SV__
+
+
+class uvme_{{ project_name }}_{{ name }}_reg_c extends uvml_ral_reg_c;
+   
+{{ field_declarations }}   
+   
+   `uvm_object_utils_begin(uvme_{{ project_name }}_{{ name }}_reg_c)
+{{ field_macros }}   `uvm_object_utils_end
+   
+   
+   /**
+    * Default constructor.
+    */
+   extern function new(string name="uvme_{{ project_name }}_{{ name }}_reg", int unsigned n_bits=32, int has_coverage=UVM_NO_COVERAGE);
+   
+   /**
+    * Creates and configures register fields.
+    */
+   extern virtual function void build();
+   
+endclass : uvme_{{ project_name }}_{{ name }}_reg_c
+
+
+function uvme_{{ project_name }}_{{ name }}_reg_c::new(string name="uvme_{{ project_name }}_{{ name }}_reg", int unsigned n_bits=32, int has_coverage=UVM_NO_COVERAGE);
+   
+   super.new(name, n_bits, has_coverage);
+   
+endfunction : new
+
+
+function void uvme_{{ project_name }}_{{ name }}_reg_c::build();
+   
+{{ field_creations }}   
+endfunction: build
+
+
+`endif // __UVME_{{ project_name_uppercase }}_{{ name_uppercase }}_REG_SV__
+
